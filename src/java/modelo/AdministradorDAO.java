@@ -176,7 +176,7 @@ public class AdministradorDAO {
             rs = ps.executeQuery();
             while (rs.next()){
                 Administrador administrador = new Administrador();
-                administrador.setIdAdministrador(rs.getInt("id_administador"));
+                administrador.setIdAdministrador(rs.getInt("id_administrador"));
                 administrador.setClaveAdministrador(rs.getString("clave_administrador"));
                 list.add(administrador);
 
