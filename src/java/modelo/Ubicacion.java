@@ -32,6 +32,12 @@ public class Ubicacion {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Ubicacion{" +
+                "idUbicacion=" + idUbicacion +
+                ", ciudad='" + ciudad + '\'' +
+                '}';
+    }
 }

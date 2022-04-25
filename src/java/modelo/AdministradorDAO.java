@@ -58,9 +58,9 @@ public class AdministradorDAO {
     }
     
     public List<Especialidad> listaEspecialidades() {
-
+        List<Especialidad> list = new LinkedList<>();
         try {
-            List<Especialidad> list = new LinkedList<>();
+
         PreparedStatement ps;
         ResultSet rs;
         ps = conexion.prepareStatement("Select * from especialidad");
@@ -82,7 +82,7 @@ public class AdministradorDAO {
         Entradas: Ninguna
         Salidas: Una lista de las especialidades de los médicos
         */
-        return null;
+        return list;
     }
     
     public void registrarEspecialidad(int idEspecialidad, String nombreEspecialidad) throws SQLException {
@@ -109,10 +109,10 @@ public class AdministradorDAO {
     }
 
     //no estoy seguro de esta
-    public List<String> listaUbicaciones() {
-
+    public List<Ubicacion> listaUbicaciones() {
+        List<Ubicacion> list = new LinkedList<>();
         try {
-            List<Ubicacion> list = new LinkedList<>();
+
             PreparedStatement ps;
             ResultSet rs;
             ps = conexion.prepareStatement("Select * from ubicacion");
@@ -120,7 +120,7 @@ public class AdministradorDAO {
             while (rs.next()){
                 Ubicacion ubicacion = new Ubicacion();
                 ubicacion.setIdUbicacion(rs.getInt("id_ubicacion"));
-                ubicacion.setCiudad(rs.getString("nombre_ciudad"));
+                ubicacion.setCiudad(rs.getString("ciudad"));
                 list.add(ubicacion);
 
             }
@@ -136,7 +136,7 @@ public class AdministradorDAO {
         Salidas: Una lista con las ubicaciones de atención de los médicos.
         */
         
-        return null;
+        return list;
     }
     
     public void registrarUbicacion(int idUbicacion, String nombreUbicacion) {
@@ -144,7 +144,7 @@ public class AdministradorDAO {
 
         try{
 
-            PreparedStatement ps = conexion.prepareStatement("INSERT INTO ubicacion(id_ubicacion, nombre_ubicacion) VALUES(?,?)");
+            PreparedStatement ps = conexion.prepareStatement("INSERT INTO ubicacion(id_ubicacion, ciudad) VALUES(?,?)");
             ps.setString(1, String.valueOf(idUbicacion));
             ps.setString(2,nombreUbicacion);
             ps.executeUpdate();
@@ -198,7 +198,7 @@ public class AdministradorDAO {
         Entradas: un entero id de admin y un string de clave de admin
         Salidas: true si el administrador existe, false en otro caso.
         */
-        return true;
+        return sesion;
     }
     
     

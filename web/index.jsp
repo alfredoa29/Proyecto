@@ -21,11 +21,11 @@
                 <button id="admin" name="admin" type="submit">Administrador</button>
             </form>
             
-            <form action="Medicos/inicio.jsp">
+            <form action="Medicos/citas.jsp">
                  <button id="volver" name="medico" type="submit">Médico</button>
             </form>
            
-             <form action="Pacientes/inicio.jsp">
+             <form action="Pacientes/agendar.jsp">
                    <button id="volver" name="paciente" type="submit">Paciente</button>
 
          
